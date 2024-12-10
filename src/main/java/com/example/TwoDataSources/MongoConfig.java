@@ -12,28 +12,25 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 
 
 
-@Configuration
-@EnableMongoRepositories(basePackages = "com.example.TwoDataSources.Repository.NoSql")
-public class MongoConfig  extends AbstractMongoClientConfiguration
+//@Configuration
+//@EnableMongoRepositories(basePackages = "com.example.TwoDataSources.Repository.NoSql")
+public class MongoConfig // extends AbstractMongoClientConfiguration
 {
-
-    @Override
-    protected String getDatabaseName() {
-        return "test";
-    }
-
-
-    @Bean
-    public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
-        return new JpaTransactionManager(emf);
-    }
-
-    @Bean
-    public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(new SimpleMongoClientDatabaseFactory("mongodb://127.0.0.1:27017/test"));
-    }
-
-
-
+//
+//    @Override
+//    protected String getDatabaseName() {
+//        return "test";
+//    }
+//
+//
+//    @Bean
+//    public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
+//        return new JpaTransactionManager(emf);
+//    }
+//
+//    @Bean
+//    public MongoTemplate mongoTemplate() {
+//        return new MongoTemplate(new SimpleMongoClientDatabaseFactory("mongodb://127.0.0.1:27017/test"));
+//    }
 
 }

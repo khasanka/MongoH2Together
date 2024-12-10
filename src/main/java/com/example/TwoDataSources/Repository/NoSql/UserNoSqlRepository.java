@@ -5,6 +5,7 @@ import com.example.TwoDataSources.Entity.ClientRDB;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 
-public interface UserNoSqlRepository extends MongoRepository<ClientMongo, String> {
+public interface UserNoSqlRepository extends MongoRepository<ClientMongo, String>
+{
 
 }

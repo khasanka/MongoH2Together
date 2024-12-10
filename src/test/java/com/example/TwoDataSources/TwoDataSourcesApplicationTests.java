@@ -1,6 +1,8 @@
 package com.example.TwoDataSources;
 
+import com.example.TwoDataSources.Entity.ClientMongo;
 import com.example.TwoDataSources.Entity.ClientRDB;
+import com.example.TwoDataSources.Model.UserDTO;
 import com.example.TwoDataSources.Service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,7 +19,9 @@ import java.util.Scanner;
 
 
 //@DataMongoTest // This annotation sets up an embedded MongoDB instance
+//@DataMongoTest()
 @SpringBootTest
+@ExtendWith(SpringExtension.class)
 class TwoDataSourcesApplicationTests {
 
 
@@ -28,15 +32,15 @@ class TwoDataSourcesApplicationTests {
 	void contextLoads() {
 
 
-		ClientRDB clientRDB = new ClientRDB();
+		UserDTO clientRDB = new UserDTO();
 
 		clientRDB.setName("CLient name ------");
 
 		clientRDB.setEmail("Client address ------");
 
-		ClientRDB savedClientRDB = userService.saveUser(clientRDB);
+		UserDTO savedClientRDB = userService.saveUser(clientRDB);
 
-		System.out.println("User added successfully : " + clientRDB);
+		System.out.println(" ========>>>>>>  User added successfully : " + clientRDB);
 	}
 
 }
