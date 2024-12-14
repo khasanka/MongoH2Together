@@ -5,10 +5,11 @@ This Spring Boot application showcases the integration of both SQL (H2) and NoSQ
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
+- [Program Specification](#program-specification)
+- [Input](#input)
+- [Output](#output)
 - [Setup Instructions](#setup-instructions)
-- [CSV Input File](#csv-input-file)
 - [How to Run the Application](#how-to-run-the-application)
-- [Job Configuration](#job-configuration)
 - [License](#license)
 
 ## Technologies Used
@@ -43,20 +44,35 @@ This Spring Boot application showcases the integration of both SQL (H2) and NoSQ
     </tr>
 </table>
 
+## Program Specification
+
+- **Input**: Send POST request to API endpoint.
+- **Process**: Save received data into H2 and MongoDB.
+- **Output**: Return saved data to same POST request.
+
 ## Input
-You can use [Postman](https://www.postman.com) to send user deatails in to the exposed api end point (Make sure application up and runing).<br>
-Here is the sample requst body 
+
+You can use [Postman](https://www.postman.com) to send user details to the exposed API endpoint (Make sure application is up and running).<br>
+Here is the sample request body:
 ```json
 {
-  "name":"Kasun Hasanka",
-  "email":"kasun@gamil.com"
+  "name": "Kasun Hasanka",
+  "email": "kasun@gmail.com"
 }
 ```
 Default API endpint URL : http://localhost:8080/user
 
+![postman_input](src/main/resources/img/postman_input.png)
+
 ## Output
+
 By using H2 console and [MongoDBCompass](https://www.mongodb.com/products/tools/compass) you can check inserted data persistence in both H2 and mongoDB servers.
-  
+
+![mongoDB_compass_output](src/main/resources/img/mongoDB_compass_output.png)
+
+![h2_consol_output](src/main/resources/img/h2_consol_output.png)
+
+
 ## Setup Instructions
 
 1. **Clone the Repository**:
@@ -73,17 +89,6 @@ By using H2 console and [MongoDBCompass](https://www.mongodb.com/products/tools/
    mvn clean install
    ```
 
-## CSV Input File
-   
- 1. **input.csv file is in the src/main/resources directory with the following sample content.**
-   
-   ```csv
-   id,name,age
-   1,Kasun,34
-   2,Iyona,33
-   3,Kamal,28
-  ```
-
 ## How to Run the Application
 
 **Run the application using your IDE or by executing the following command in your terminal.**
@@ -92,13 +97,8 @@ By using H2 console and [MongoDBCompass](https://www.mongodb.com/products/tools/
    mvn spring-boot:run
 ```
 
-## Job Configuration
-  **The application is configured with a Spring Batch job that performs the following tasks**
-
-  - Read: Reads data from the input.csv file.
-  - Write: Outputs the processed data to the console.
-
 ## License
+
   **This project is licensed under the MIT License. Feel free to use, modify, and distribute this application as per the terms of the license.**
 
 
